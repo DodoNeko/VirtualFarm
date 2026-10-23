@@ -30,6 +30,12 @@ app.get("/", (req, res) => {
     );
 });
 
+app.get("/profile/", (req, res) => {
+    res.sendFile(
+        path.join(__dirname, "../src/templates/pages/profile.html")
+    );
+});
+
 app.use("/api", routes);
 
 export default app;
