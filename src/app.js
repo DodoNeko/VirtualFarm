@@ -4,6 +4,9 @@ import dotenv from "dotenv";
 import connectDB from "./config/database.js";
 import routes from "./routes/index.js";
 
+import path from "path";
+import { fileURLToPath } from "url";
+
 dotenv.config();
 console.log(process.env.MONGO_URI);
 
