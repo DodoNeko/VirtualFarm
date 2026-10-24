@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body {
+    background-color: #1a1a1a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+#game-container {
+    position: relative;
+    width: max-content;
+    height: max-content;
+}
+
+canvas {
+    background-color: #2e7d32; /* Zielone sukno karciane */
+    display: block;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
