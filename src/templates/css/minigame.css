@@ -8,18 +8,36 @@
 body {
     background-color: #1a1a1a;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    min-width: 100vw;
+    width: 100vw;
     min-height: 100vh;
+    background-image: url('../images/minigame-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+
+    caret-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 #game-container {
+    margin-top: 300px;
     position: relative;
-    width: max-content;
-    height: max-content;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    gap: 20px;              
+}
+
+#ui-container {
+    display: flex;
+    gap: 15px; 
 }
 
 canvas {
-    background-color: #2e7d32; /* Zielone sukno karciane */
+    background-color: #2e7d32;
     display: block;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
