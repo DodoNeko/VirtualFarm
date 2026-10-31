@@ -1,4 +1,5 @@
 
+
 .startImg {
     background-image: url('../images/start-bg.png');
     background-repeat: no-repeat;
@@ -141,6 +142,27 @@
     transition: all 0.1s ease-in-out;
 }
 
+.blueBtn {
+    background: linear-gradient(45deg, #7ebdff, #daecff);
+    color:white;
+    border-radius: 24px;
+    padding: 8px 40px;
+    cursor: pointer;
+    border:none;
+    transition: all 0.1s ease-in-out;
+}
+
+.blueBtn:hover {
+    color:white;
+    opacity: 0.8;
+    border:none;
+}
+
+.blueBtn:active {
+    color:white;
+    opacity: 0.6;
+}
+
 .redBtn:hover {
     color:white;
     opacity: 0.8;
@@ -175,4 +197,169 @@
 
 a {
     color: #653b09;
+}
+
+.gameBg {
+    background-image: url('../images/game-bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    margin:0;
+    min-height: 100vh;
+    caret-color: transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.navBar {
+    border-radius: 0  0 32px 32px ;
+    margin: 0 15% 0 15%;
+    background-color: #ffffff;
+    margin-bottom: 32px;
+    padding: 16px 32px 16px 32px;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.navItem {
+    font-weight: bold;
+    font-size: 32px;
+    color:#653b09;
+}
+
+.page {
+    background-color: #ffffff;
+    margin: 0 15% 32px 15%;
+    border-radius: 32px;
+    flex: 1;
+}
+
+.brownHeader {
+    color: #985d2a;
+    font-weight: bold;
+    font-size: 32px;
+}
+.goldHeader {
+    color: #e3b55a;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.navItem:hover {
+    opacity: 0.5;
+}
+
+.logoutBtn {
+    color: #653b09;
+}
+
+
+.table {
+    text-align: center;
+    color: #44280e;
+    border: 2px solid #9b622f;
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background-color: #985b28;
+    color: #321c0b;
+    font-weight: bold;
+    border: 2px solid #633b1b;
+    padding: 10px;
+}
+
+.table tbody td {
+    background-color: #f3e7df;
+    border: 2px solid #dfcfc1;
+    padding: 9px;
+    vertical-align: middle;
+}
+
+.table tbody td:first-child {
+    font-weight: bold;
+}
+
+.table tbody tr.selected td {
+    background-color: #ead0ad;
+}
+
+.plantTableContainer {
+    max-height: 450px;
+    overflow-y: auto;
+    overflow-x: auto;
+    border-radius: 8px;
+}
+.plantBox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 28px;
+
+    background: radial-gradient(
+        circle at center,
+        #fffdf9 0%,
+        #f3ecdd 65%,
+        #e5d8bc 100%
+    );
+
+    padding: 10px;
+    isolation: isolate;
+}
+
+/* Przyciski */
+#plantActions {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    position: relative;
+    z-index: 3;
+}
+
+#plantActions button {
+    flex: 1;
+    border: none;
+    border-radius: 30px;
+    padding: 8px 12px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Cień */
+.plantBox::after {
+    content: "";
+    position: absolute;
+    bottom: 18px;
+    left: 19%;
+    width: 62%;
+    height: 42px;
+    background: radial-gradient(
+        ellipse,
+        #62553e 0%,
+        #a49893 65%,
+        transparent 100%
+    );
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Roślina */
+#plantPreview {
+    position: absolute;
+    width: 75%;
+    height: auto;
+    max-height: 330px;
+
+    object-fit: contain;
+    object-position: bottom;
+
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    z-index: 2;
 }
