@@ -352,7 +352,7 @@ a {
     position: absolute;
     width: 75%;
     height: auto;
-    max-height: 330px;
+    max-height: 650px;
 
     object-fit: contain;
     object-position: bottom;

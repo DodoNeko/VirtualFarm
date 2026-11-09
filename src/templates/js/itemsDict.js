@@ -4,7 +4,8 @@ const _ITEMS = [
         'name': 'Apple seeds',
         'type': 'seed',
         'level': 3,
-        'price': 15
+        'price': 15,
+        'plantNumber': 1
     },
     {
         'id': 2,

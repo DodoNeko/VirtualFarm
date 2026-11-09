@@ -12,3 +12,18 @@ logoutBtn.addEventListener("click", async (e) => {
         window.location.href = "/";
     }
 });
+
+
+function handleAlert(alert, ok, message) {
+    alert.classList.remove("d-none");
+    if (ok) {
+        alert.classList.remove('alert-danger');
+        alert.classList.add('alert-success');
+        alert.innerHTML = message;
+    }
+    else {
+        alert.classList.add('alert-danger');
+        alert.classList.remove('alert-success');
+        alert.innerHTML = message;
+    }
+}
