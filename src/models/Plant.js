@@ -12,9 +12,9 @@ const plantSchema = new mongoose.Schema({
     soilNumber: { type: Number, required: true },
     care: { type: Number },
     watering: { type: Number },
-    lastWateredAt: { type: Date },
-    lastCaredAt: { type: Date },
-    planedAt: { type: Date },
+    lastWateredAt: { type: Number },
+    lastCaredAt: { type: Number },
+    plantedAt: { type: Number },
     phase: { type: Number }
 }, {
     timestamps: true

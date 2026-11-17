@@ -39,12 +39,12 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Biome</th>
-                                    <th>Ground</th>
+                                    <th>Soil</th>
                                     <th>Phase</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="plantList">
                                 <tr>
                                     <td>Lorem ipsum</td>
                                     <td>Lorem ipsum</td>
@@ -146,6 +146,12 @@
                     <div id="plantActions">
                     </div>
                     <img id="plantPreview" src="../images/plants/Brake-1.png">
+                </div>
+                <div class="alert alert-warning mt-2">
+                    <p class="m-0">Watered: <span id="wateredSpan">X</span>
+                        || Cared: <span id="caredSpan">X</span></p>
+                    <p class="m-0">Last watered at: Day <span id="lastWateredSpan">X</span>
+                        | Last cared at: Day <span id="lastCaredSpan">X</span></p>
                 </div>
             </div>
         </div>

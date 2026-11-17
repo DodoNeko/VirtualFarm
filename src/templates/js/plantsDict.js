@@ -1,4 +1,4 @@
-const _BIOMS = [
+const _BIOMES = [
     'forest',    // 0
     'desert',    // 1
     'ocean',     // 2
@@ -6,7 +6,7 @@ const _BIOMS = [
     'cave'       // 4
 ];
 
-const _SOIL = [
+const _SOILS = [
     'loam',      // 0
     'sandish',   // 1
     'rocky',     // 2
@@ -15,6 +15,13 @@ const _SOIL = [
     'dripstone'  // 5
 ];
 
+const _PHASES = [
+    'planted',  // 0
+    'growing',  // 1
+    'blooming', // 2
+    'mature',   // 3
+    'dead',     // 4
+];
 
 
 const _PLANTS = [
