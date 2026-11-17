@@ -16,7 +16,6 @@ const myInventory = [
 let currentDay = 1;
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('plantActions').innerHTML = regularActions;
     document.getElementById('nextDayBtn').addEventListener('click', nextDay);
     updateList();
     initModal();
