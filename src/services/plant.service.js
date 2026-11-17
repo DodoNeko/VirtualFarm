@@ -31,10 +31,12 @@ export const evolve = async (success, plantId) => {
             { _id: new mongoose.Types.ObjectId(plantId) },
             {
                 $inc: { phase: 1 },
-                watering: 0,
-                care: 0,
-                lastWateredAt: 0,
-                lastCaredAt: 0
+                $set: {
+                    watering: 0,
+                    care: 0,
+                    lastWateredAt: 0,
+                    lastCaredAt: 0
+                }
             }
         );
         return {
@@ -46,7 +48,7 @@ export const evolve = async (success, plantId) => {
         const result = await Plant.updateOne(
             { _id: new mongoose.Types.ObjectId(plantId) },
             {
-                $inc: { phase: 4 },
+                $set: { phase: 4 }
             }
         );
         return {
@@ -55,28 +57,35 @@ export const evolve = async (success, plantId) => {
             results: result
         };
     }
-}
+};
 
-export const harvest = async (exp, userId) => {
+export const harvest = async (exp, plantId, userId) => {
     const result = await User.updateOne(
         { _id: new mongoose.Types.ObjectId(userId) },
-        { $inc: { exp: exp } }
+        { $inc: { exp: Number(exp) || 0 } }
     );
+
+    if (plantId) {
+        await Plant.deleteOne({ _id: new mongoose.Types.ObjectId(plantId) });
+    }
+
     return {
         status: "success",
         message: "Plant has been harvested",
         results: result
     };
-}
+};
 
-export const change = async (action, plantId) => {
-    // action -> water / care / remove
-    if (action == 'water') {
+export const change = async (action, plantId, currentDay) => {
+    // action -> water / care / dead / remove
+    if (action == "water") {
         const result = await Plant.updateOne(
             { _id: new mongoose.Types.ObjectId(plantId) },
-            { $inc: { watering: 1 } }
+            {
+                $inc: { watering: 1 },
+                $set: { lastWateredAt: currentDay }
+            }
         );
-        console.log(result);
         return {
             status: "success",
             message: "Plant has been watered",
@@ -85,23 +94,26 @@ export const change = async (action, plantId) => {
     } else if (action == "care") {
         const result = await Plant.updateOne(
             { _id: new mongoose.Types.ObjectId(plantId) },
-            { $inc: { care: 1 } }
+            {
+                $inc: { care: 1 },
+                $set: { lastCaredAt: currentDay }
+            }
         );
         return {
             status: "success",
             message: "Plant has been taken care of",
             results: result
         };
-    }
-    else if (action == "remove") {
+    } else if (action == "dead" || action == "remove") {
         await Plant.deleteOne(
             { _id: new mongoose.Types.ObjectId(plantId) }
         );
         return {
-            status: "success"
+            status: "success",
+            message: "Plant has been removed"
         };
     }
-}
+};
 
 export const get = async (userId) => {
     const result = await Plant.find(
@@ -110,8 +122,27 @@ export const get = async (userId) => {
         }
     );
 
+    const user = await User.findOne({
+        _id: new mongoose.Types.ObjectId(userId)
+    });
+
     return {
         status: "success",
+        day: user.day ?? 1,
         results: result
     };
 };
+
+export const nextDay = async (userId) => {
+    const user = await User.updateOne({
+        _id: new mongoose.Types.ObjectId(userId)
+    },
+        {
+            $inc: { day: 1 },
+        }
+    );
+    return {
+        status: "success",
+        day: user.day
+    };
+}

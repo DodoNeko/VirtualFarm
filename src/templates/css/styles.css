@@ -1,4 +1,4 @@
-
+/* ================= START & LOGIN PAGES ================= */
 
 .startImg {
     background-image: url('../images/start-bg.png');
@@ -6,19 +6,19 @@
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
-    margin:0;
+    margin: 0;
     min-height: 100vh;
     caret-color: transparent;
 }
 
 .titleLeftHeader {
-    font-size: 80px;
+    font-size: clamp(2.5rem, 6vw, 5rem);
     font-weight: bold;
     font-style: italic;
-    color:#653b09;
-    position:absolute;
-    left:50px;
-    top:50px;
+    color: #653b09;
+    position: absolute;
+    left: 50px;
+    top: 50px;
     margin-top: 30px;
     text-shadow: 0 0 10px #f1fcfc, 0 0 20px #f4ffff;
     display: flex;
@@ -27,94 +27,82 @@
 }
 
 .startBtns {
-    float: right;
     position: fixed;
     bottom: 36px;
-    gap:16px;
     right: 120px;
-    width: 360px;
+    width: min(90%, 360px);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
-
 .startBtn {
+    position: relative;
     background: linear-gradient(45deg, #cc442c, #ffb997);
-    color:white;
+    color: white;
     font-size: 24px;
     border-radius: 32px;
     padding: 8px 40px;
     cursor: pointer;
-    border:none;
+    border: none;
     transition: all 0.2s ease-in-out;
 }
+
 .continueBtn {
+    position: relative;
     background: linear-gradient(45deg, #cd8100, #ffe3a4);
-    color:white;
+    color: white;
     font-size: 24px;
     border-radius: 24px;
     padding: 8px 40px;
     cursor: pointer;
-    border:none;
+    border: none;
     transition: all 0.2s ease-in-out;
 }
 
-.startBtn::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    
-    background: linear-gradient(45deg, #cc442c, #ffb997);
-    border-radius: 24px;
-
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
-}
-
+.startBtn::before,
 .continueBtn::before {
     content: "";
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    
-    background: linear-gradient(45deg, #cd8100, #ffe3a4);
+    inset: 0;
     border-radius: 24px;
-
     z-index: -1;
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
 }
 
-.startBtn:hover::before {
-    opacity: 1;
+.startBtn::before {
+    background: linear-gradient(45deg, #cc442c, #ffb997);
 }
 
+.continueBtn::before {
+    background: linear-gradient(45deg, #cd8100, #ffe3a4);
+}
+
+.startBtn:hover::before,
 .continueBtn:hover::before {
     opacity: 1;
 }
 
-.startBtn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px 5px rgba(255, 89, 173, 0.6);
-    border:none;
-}
+.startBtn:hover,
 .continueBtn:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0 0 20px 5px rgba(255, 89, 173, 0.6);
-    border:none;
+    border: none;
 }
 
 .loginPage {
-    display: block;
     background-color: white;
     width: 60%;
-    padding-left: 10%;
+    padding: 40px 5% 40px 12%;
     display: flex;
-    float: right;
     position: fixed;
-    bottom:0px;
-    top:0px;
-    right:0px;
+    bottom: 0;
+    top: 0;
+    right: 0;
     flex-direction: column;
     justify-content: center;
+    overflow-y: auto;
     clip-path: polygon(
         0 0,
         100% 0,
@@ -125,79 +113,83 @@
 
 .loginHeader {
     text-align: center;
-    color:#653b09;
-    font-size: 40px;
+    color: #653b09;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
     font-weight: bold;
     margin-bottom: 20px;
 }
 
+/* ================= BUTTONS ================= */
+
+.redBtn,
+.blueBtn,
+.goldBtn,
+.greenBtn,
+.blackBtn {
+    color: white;
+    border-radius: 24px;
+    padding: 8px 32px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.15s ease-in-out;
+    white-space: nowrap;
+}
 
 .redBtn {
     background: linear-gradient(45deg, #cc442c, #ffb997);
-    color:white;
-    border-radius: 24px;
-    padding: 8px 40px;
-    cursor: pointer;
-    border:none;
-    transition: all 0.1s ease-in-out;
 }
 
 .blueBtn {
-    background: linear-gradient(45deg, #7ebdff, #daecff);
-    color:white;
-    border-radius: 24px;
-    padding: 8px 40px;
-    cursor: pointer;
-    border:none;
-    transition: all 0.1s ease-in-out;
-}
-
-.blueBtn:hover {
-    color:white;
-    opacity: 0.8;
-    border:none;
-}
-
-.blueBtn:active {
-    color:white;
-    opacity: 0.6;
-}
-
-.redBtn:hover {
-    color:white;
-    opacity: 0.8;
-    border:none;
-}
-
-.redBtn:active {
-    color:white;
-    opacity: 0.6;
+    background: linear-gradient(45deg, #4b9df5, #b6d8ff);
 }
 
 .goldBtn {
-    background: linear-gradient(45deg,  #cd8100, #ffe3a4);
-    color:white;
-    border-radius: 24px;
-    padding: 8px 40px;
-    cursor: pointer;
-    border:none;
-    transition: all 0.1s ease-in-out;
+    background: linear-gradient(45deg, #cd8100, #ffe3a4);
 }
 
-.goldBtn:hover {
-    color:white;
-    opacity: 0.8;
-    border:none;
+.greenBtn {
+    background: linear-gradient(45deg, #2e8b57, #8fd9a8);
 }
 
-.goldBtn:active {
-    color:white;
-    opacity: 0.6;
+.blackBtn {
+    background: linear-gradient(45deg, #2c2c2c, #6e6e6e);
+}
+
+.redBtn:hover,
+.blueBtn:hover,
+.goldBtn:hover,
+.greenBtn:hover,
+.blackBtn:hover {
+    color: white;
+    opacity: 0.85;
+}
+
+.redBtn:active,
+.blueBtn:active,
+.goldBtn:active,
+.greenBtn:active,
+.blackBtn:active {
+    color: white;
+    opacity: 0.65;
+}
+
+.redBtn:disabled,
+.blueBtn:disabled,
+.goldBtn:disabled,
+.greenBtn:disabled,
+.blackBtn:disabled {
+    opacity: 0.45;
+    filter: grayscale(75%);
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 a {
     color: #653b09;
 }
+
+/* ================= GAME LAYOUT & NAVBAR ================= */
 
 .gameBg {
     background-image: url('../images/game-bg.png');
@@ -205,7 +197,7 @@ a {
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
-    margin:0;
+    margin: 0;
     min-height: 100vh;
     caret-color: transparent;
     display: flex;
@@ -213,48 +205,71 @@ a {
 }
 
 .navBar {
-    border-radius: 0  0 32px 32px ;
-    margin: 0 15% 0 15%;
+    width: min(94%, 1320px);
+    margin: 0 auto 24px auto;
+    border-radius: 0 0 32px 32px;
     background-color: #ffffff;
-    margin-bottom: 32px;
-    padding: 16px 32px 16px 32px;
+    padding: 16px 32px;
     display: flex;
-    flex-direction: row;
-    gap: 40px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    box-shadow: 0 4px 16px rgba(68, 40, 14, 0.08);
+}
+
+.navLinks {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: clamp(16px, 3vw, 48px);
 }
 
 .navItem {
     font-weight: bold;
-    font-size: 32px;
-    color:#653b09;
+    font-size: clamp(1.25rem, 2.2vw, 2rem);
+    color: #653b09;
+    cursor: pointer;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.navItem:hover {
+    opacity: 0.6;
+}
+
+.logoutBtn {
+    color: #653b09;
+    font-size: clamp(1.05rem, 1.5vw, 1.35rem);
 }
 
 .page {
+    width: min(94%, 1320px);
+    margin: 0 auto 32px auto;
     background-color: #ffffff;
-    margin: 0 15% 32px 15%;
     border-radius: 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 6px 24px rgba(68, 40, 14, 0.1);
+}
+
+.page > .row {
     flex: 1;
 }
 
 .brownHeader {
     color: #985d2a;
     font-weight: bold;
-    font-size: 32px;
+    font-size: clamp(1.35rem, 2.2vw, 2rem);
 }
+
 .goldHeader {
     color: #e3b55a;
     font-weight: bold;
-    font-size: 32px;
+    font-size: clamp(1.35rem, 2.2vw, 2rem);
 }
 
-.navItem:hover {
-    opacity: 0.5;
-}
-
-.logoutBtn {
-    color: #653b09;
-}
-
+/* ================= TABLE ================= */
 
 .table {
     text-align: center;
@@ -265,10 +280,13 @@ a {
 
 .table thead th {
     background-color: #985b28;
-    color: #321c0b;
+    color: #fff8f0;
     font-weight: bold;
     border: 2px solid #633b1b;
     padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 
 .table tbody td {
@@ -276,6 +294,15 @@ a {
     border: 2px solid #dfcfc1;
     padding: 9px;
     vertical-align: middle;
+}
+
+.table tbody tr {
+    cursor: pointer;
+    transition: background-color 0.12s ease;
+}
+
+.table tbody tr:hover td {
+    background-color: #efe0cf;
 }
 
 .table tbody td:first-child {
@@ -287,29 +314,34 @@ a {
 }
 
 .plantTableContainer {
-    min-height: 400px;
+    min-height: 360px;
+    max-height: 460px;
     overflow-y: auto;
     overflow-x: auto;
-    border-radius: 8px;
+    border-radius: 12px;
+    border: 1px solid #dfcfc1;
 }
+
+/* ================= PLANT PREVIEW & STATS ================= */
+
 .plantBox {
     position: relative;
     width: 100%;
-    height: 100%;
+    min-height: 360px;
     border-radius: 28px;
-
     background: radial-gradient(
         circle at center,
         #fffdf9 0%,
         #f3ecdd 65%,
         #e5d8bc 100%
     );
-
-    padding: 10px;
+    padding: 16px;
     isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-/* Przyciski */
 #plantActions {
     display: flex;
     justify-content: space-between;
@@ -322,20 +354,22 @@ a {
     flex: 1;
     border: none;
     border-radius: 30px;
-    padding: 8px 12px;
+    padding: 10px 14px;
     font-weight: bold;
     font-size: 16px;
     cursor: pointer;
 }
 
-/* Cień */
+/* Cień pod doniczką */
 .plantBox::after {
     content: "";
     position: absolute;
     bottom: 18px;
-    left: 19%;
+    left: 50%;
+    transform: translateX(-50%);
     width: 62%;
-    height: 42px;
+    max-width: 260px;
+    height: 40px;
     background: radial-gradient(
         ellipse,
         #62553e 0%,
@@ -347,19 +381,128 @@ a {
     pointer-events: none;
 }
 
-/* Roślina */
+/* Grafika rośliny */
 #plantPreview {
     position: absolute;
-    width: 75%;
-    height: auto;
-    max-height: 650px;
-
+    max-height: 270px;
+    max-width: 80%;
     object-fit: contain;
     object-position: bottom;
-
-    bottom: 35px;
+    bottom: 34px;
     left: 50%;
     transform: translateX(-50%);
-
     z-index: 2;
+}
+
+.plantStatsAlert {
+    background-color: #fbf3e4;
+    border: 2px solid #e5d0ab;
+    border-radius: 20px;
+    color: #5c3714;
+    font-size: 0.95rem;
+    padding: 12px 16px;
+}
+
+.redBtn:disabled,
+.blueBtn:disabled,
+.goldBtn:disabled,
+.greenBtn:disabled,
+.blackBtn:disabled,
+.startBtn:disabled,
+.continueBtn:disabled,
+#plantActions button:disabled {
+    background: linear-gradient(45deg, #8c8881, #c7c3bc);
+    color: #f4f4f4;
+    filter: grayscale(100%);
+    opacity: 0.75;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.redBtn:disabled:hover,
+.blueBtn:disabled:hover,
+.goldBtn:disabled:hover,
+.greenBtn:disabled:hover,
+.blackBtn:disabled:hover,
+.startBtn:disabled:hover,
+.continueBtn:disabled:hover,
+#plantActions button:disabled:hover,
+.redBtn:disabled:active,
+.blueBtn:disabled:active,
+.goldBtn:disabled:active,
+.greenBtn:disabled:active,
+.blackBtn:disabled:active {
+    opacity: 0.75;
+    transform: none;
+    box-shadow: none;
+}
+
+.startBtn:disabled::before,
+.continueBtn:disabled::before {
+    opacity: 0;
+}
+
+/* ================= RESPONSIVE BREAKPOINTS ================= */
+
+@media (max-width: 991.98px) {
+    .loginPage {
+        width: 100%;
+        padding: 32px 24px;
+        clip-path: none;
+    }
+
+    .titleLeftHeader {
+        position: static;
+        text-align: center;
+        padding: 32px 16px 0;
+        margin-top: 0;
+    }
+
+    .startBtns {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+    }
+
+    .plantTableContainer {
+        min-height: 240px;
+        max-height: 360px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .navBar {
+        padding: 12px 18px;
+        border-radius: 0 0 24px 24px;
+        margin-bottom: 16px;
+    }
+
+    .page {
+        border-radius: 24px;
+        margin-bottom: 20px;
+    }
+
+    .redBtn,
+    .blueBtn,
+    .goldBtn,
+    .greenBtn,
+    .blackBtn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+
+    .plantBox {
+        min-height: 320px;
+        border-radius: 22px;
+    }
+
+    #plantPreview {
+        max-height: 220px;
+    }
+
+    .plantStatsAlert {
+        font-size: 0.85rem;
+        text-align: center;
+    }
 }

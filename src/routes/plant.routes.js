@@ -2,7 +2,7 @@ import { Router } from "express";
 import authMiddleware from "../middleware/auth.middleware.js";
 
 import {
-    create, get, evolve, harvest, change
+    create, get, evolve, harvest, change, nextDay
 } from "../controllers/plant.controller.js";
 
 
@@ -25,6 +25,11 @@ router.post(
 router.post(
     "/change", authMiddleware,
     change
+);
+
+router.put(
+    "/nextDay", authMiddleware,
+    nextDay
 );
 
 router.post(

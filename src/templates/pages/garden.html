@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VF - Garden</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -10,30 +11,32 @@
 </head>
 
 <body class="gameBg user-select-none">
-    <div class="navBar">
-        <div class="col col-10 d-flex gap-5">
+    <nav class="navBar">
+        <div class="navLinks">
             <span id="gardenNav" class="navItem brownHeader">Garden</span>
             <span id="shopNav" class="navItem goldHeader">Shop</span>
             <span id="workNav" class="navItem goldHeader">Work</span>
             <span id="journalNav" class="navItem goldHeader">Journal</span>
         </div>
-        <div class="col col-2 d-flex align-items-center justify-content-center">
-            <span id="logoutBtn" class="navItem logoutBtn fs-5">Logout</span>
+        <div class="d-flex align-items-center">
+            <span id="logoutBtn" class="navItem logoutBtn">Logout</span>
         </div>
-    </div>
-    <div class="page">
-        <div class="row p-4">
-            <div class="col col-7">
-                <div class="manageBox">
-                    <div class="manageBoxActions d-flex flex-row justify-content-between align-items-center ">
+    </nav>
+
+    <main class="page">
+        <div class="row g-4 p-3 p-md-4">
+            <!-- Lewa kolumna: Zarządzanie i tabela -->
+            <div class="col-12 col-lg-7 d-flex flex-column">
+                <div class="manageBox d-flex flex-column flex-grow-1">
+                    <div
+                        class="manageBoxActions d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
                         <button id="addPlantBtn" data-bs-toggle="modal" data-bs-target="#addPlantModal"
-                            class="goldBtn">New
-                            Plant</button>
-                        <span class="brownHeader">Day 12</span>
-                        <button class="redBtn">Next Day</button>
+                            class="goldBtn">New Plant</button>
+                        <span class="brownHeader dayTitle">Day <span id="dayCounter">...</span></span>
+                        <button id="nextDayBtn" class="redBtn">Next Day</button>
                     </div>
-                    <br>
-                    <div class="plantTableContainer">
+
+                    <div class="plantTableContainer flex-grow-1">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -52,123 +55,42 @@
                                     <td>Lorem ipsum</td>
                                     <td>Lorem ipsum</td>
                                 </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <div class="col col-5">
-                <div class="plantBox bg-warning">
-                    <div id="plantActions">
-                    </div>
-                    <img id="plantPreview" src="../images/plants/Brake-1.png">
+
+            <!-- Prawa kolumna: Podgląd rośliny i statystyki -->
+            <div class="col-12 col-lg-5 d-flex flex-column">
+                <div class="plantBox flex-grow-1">
+                    <div id="plantActions"></div>
+                    <img id="plantPreview" src="../images/plants/dead.png" alt="Plant preview">
                 </div>
-                <div class="alert alert-warning mt-2">
-                    <p class="m-0">Watered: <span id="wateredSpan">X</span>
-                        || Cared: <span id="caredSpan">X</span></p>
-                    <p class="m-0">Last watered at: Day <span id="lastWateredSpan">X</span>
-                        | Last cared at: Day <span id="lastCaredSpan">X</span></p>
+
+                <div class="alert alert-warning plantStatsAlert mt-3 mb-0">
+                    <p class="m-0">
+                        <strong>Watered:</strong> <span id="wateredSpan">--</span>
+                        <span class="mx-2 text-muted">|</span>
+                        <strong>Cared:</strong> <span id="caredSpan">--</span>
+                    </p>
+                    <p class="m-0 mt-1">
+                        <strong>Last watered:</strong> Day <span id="lastWateredSpan">--</span>
+                        <span class="mx-2 text-muted">|</span>
+                        <strong>Last cared:</strong> Day <span id="lastCaredSpan">--</span>
+                    </p>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
-    <script src="../js/navbar.js"></script>
-    <script src="../js/itemsDict.js"></script>
-    <script src="../js/plantsDict.js"></script>
-    <script src="../js/garden.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
+    <!-- Modal dodawania rośliny -->
     <div class="modal fade" id="addPlantModal" tabindex="-1" role="dialog" aria-labelledby="plantModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div id="plantAlert" class="d-none alert alert-success">Data saved successfully</div>
-                <form id="addPlantForm">
+                <div id="plantAlert" class="d-none alert alert-success m-3 mb-0">Data saved successfully</div>
+                <form id="addPlantForm" novalidate>
                     <div class="modal-header">
                         <h5 class="modal-title" id="plantModalLabel">Add plant to garden</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -176,14 +98,14 @@
                     <div class="modal-body">
                         <div class="form-floating mb-3">
                             <select class="form-select" id="seedSelect" aria-label="Seed">
-                                <option selected>--- Choose ---</option>
+                                <option value="" selected>--- Choose ---</option>
                             </select>
                             <label for="seedSelect">Seed</label>
                         </div>
 
                         <div class="form-floating mb-3">
                             <select class="form-select" id="soilSelect" aria-label="Soil">
-                                <option selected>--- Choose ---</option>
+                                <option value="" selected>--- Choose ---</option>
                                 <option value="0">loam</option>
                                 <option value="1">sandish</option>
                                 <option value="2">rocky</option>
@@ -196,14 +118,15 @@
 
                         <div class="form-floating mb-3">
                             <select class="form-select" id="biomeSelect" aria-label="Biome">
-                                <option selected>--- Choose ---</option>
+                                <option value="" selected>--- Choose ---</option>
                                 <option value="0">Forest</option>
                             </select>
                             <label for="biomeSelect">Biome</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="number" id="quantityInput" aria-label="Quantity" min="0">
+                            <input class="form-control" type="number" id="quantityInput" aria-label="Quantity" min="0"
+                                value="0">
                             <label for="quantityInput">Quantity</label>
                         </div>
                     </div>
@@ -215,6 +138,12 @@
             </div>
         </div>
     </div>
+
+    <script src="../js/navbar.js"></script>
+    <script src="../js/itemsDict.js"></script>
+    <script src="../js/plantsDict.js"></script>
+    <script src="../js/garden.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

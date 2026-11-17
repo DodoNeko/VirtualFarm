@@ -116,7 +116,7 @@ form.addEventListener("submit", async (e)=>{
             "token",
             data.token.token
         );
-        window.location.href = `/profile/`;
+        window.location.href = `/garden/`;
     } else {
         handleAlert(document.querySelector("#loginAlert"), false, `${data.error}`);
     }
